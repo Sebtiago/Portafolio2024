@@ -24,12 +24,11 @@ Sumérgete en el mundo del diseño con un toque innovador y fresco. Mi enfoque v
 ![Instagram](https://www.instagram.com/sebtiagosf/)
 
 
-## Horario Actual en Bogotá, Colombia
-
-En este momento, en Bogotá, Colombia, son las [hora_actual]. Estoy disponible para hablar de diseño y explorar nuevas oportunidades.
+## Disponible como Freelance
+Estoy disponible para hablar de diseño y explorar nuevas oportunidades.
 
 ¡Gracias por visitar mi portafolio creativo! ✨
 
 ---
 
-*© 2023 Sebastián Suárez - Todos los derechos reservados*
+*© 2024 Sebastián Suárez - Todos los derechos reservados*

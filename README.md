@@ -27,7 +27,7 @@ Sumérgete en el mundo del diseño con un toque innovador y fresco. Mi enfoque v
 ## Disponible como Freelance
 Estoy disponible para hablar de diseño y explorar nuevas oportunidades.
 
-¡Gracias por visitar mi portafolio creativo! ✨
+¡Gracias por visitar mi portafolio! ✨
 
 ---
 

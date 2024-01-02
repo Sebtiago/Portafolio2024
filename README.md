@@ -20,7 +20,7 @@ Sumérgete en el mundo del diseño con un toque innovador y fresco. Mi enfoque v
 ## Contacto
 
 ¡Hablemos de diseño! Puedes contactarme a través de:
-###📥 Correo Electrónico: sebtiagosuarez@gmail.com
+### Correo Electrónico: sebtiagosuarez@gmail.com 📥
 ### ![Instagram](https://www.instagram.com/sebtiagosf/)
 
 

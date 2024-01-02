@@ -1,0 +1,44 @@
+<header>
+    <nav class="flex items-center justify-between p-4">
+        <a href="#inicio" class="text-2xl font-bold">Inicio</a>
+        <button id="menu-icon" class="block md:hidden text-white focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <div id="menu" class="hidden  md:flex md:space-x-4 md:items-center">
+            <a href="#acerca-de-mi" class="ml-4">Acerca de Mí</a>
+            <a href="#portafolio" class="ml-4">Portafolio</a>
+            <a href="#habilidades" class="ml-4">Habilidades</a>
+            <a href="#contacto" class="ml-4">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="flex items-center p-4 bg-gray-800 text-white md:hidden">
+        <div id="mobile-menu" class="flex flex-col items-center w-full">
+            <a href="#acerca-de-mi" class="ml-4">Acerca de Mí</a>
+            <a href="#portafolio" class="ml-4">Portafolio</a>
+            <a href="#habilidades" class="ml-4">Habilidades</a>
+            <a href="#contacto" class="ml-4">Contacto</a>
+        </div>
+    </div>
+
+</header>
+
+<style>
+    		/* Estilos para el icono de menú de hamburguesa */
+		#menu-icon svg {
+			fill: none;
+			stroke: currentColor;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+				}nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+	  
+
+</style>

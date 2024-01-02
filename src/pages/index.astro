@@ -1,16 +1,173 @@
 ---
+import '@fontsource-variable/rubik';
+
+const { currentTime, greeting, period } = getCurrentTimeAndGreeting();
+
+function getCurrentTimeAndGreeting() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  
+  let period;
+  let greeting;
+
+  if (hours >= 8 && hours < 22) {
+    period = hours < 12 ? 'de la mañana' : 'de la tarde';
+    greeting = 'Estoy disponible. ¿Listo para hablar de diseño?';
+  } else {
+    period = 'de la madrugada';
+    greeting = 'En este momento estoy descansando.';
+  }
+
+  const formattedHours = hours % 12 || 12;
+  const formattedTime = `${formattedHours}:${minutes} ${hours < 12 ? 'a.m.' : 'p.m.'}`;
+
+  return {
+    currentTime: formattedTime,
+    greeting,
+    period,
+  };
+}
+
 
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Sebastián Suárez Portafolio</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-6 md:px-32">
+		
+		
+
+		<section id="inicio" class="py-8" >
+			<div class="container mx-auto  grid grid-col-1  md:grid-cols-2 gap-x-5">
+				<img class=" w-full h-96 object-cover rounded-3xl" src="https://lh3.googleusercontent.com/fife/AGXqzDmXLjjZgfL3-MSqA00QBPEC-Cnm1b2STZohMHluyQ4OyWeU-Z3RF02-Ev4tbhzb3vHGbYYtz2S7tY5d8fItacQfkHplSTDbe7S7teMafrFwejZJ5kcu2wk4jD1wQx7qhuSASLN-bDP4rZYrP6LGE_w27Z4wymc5OheqJyGVsz3XkYXANep54j5Vai_KHe5kzZ6iEOnc4G3UPfF34UhWLSlJDjGUbIWBKWRILheC-G3i1Oio6yRqCWvcF_Dqi51d9rDLIcQ_9IizPV3_OMbTtm3ji-td1Gk13TunMglose3OFwlpIs8bPUBQyCu2HrFdJAJr3kbKCjaVYC0PJKDlxDgAMuTqoF_QK_Q1wGt1msjjiG3CViF05M9XGJiqAbpFBTqybetjp7-ZnXWHBuxKHYBid2E24vVWSxXcgPj3y0u-515BORlj3ge0MDobugcBY_JoJURCk7zpoSiycNzx_2_zUkRb9PmUe9Ziu22an-PCDaN1fxUU1EotQZwCJaqIH6V20SmxVztNZNUEfCZGE5d2nCRRgeSlAYl3FDaj55rVIK9TdDZ6R6h4OPIcjxNilVVGmwWscBKDwuC9oPtLNVRYExN51BpbKN5RheCeLB1KYFdZWZyu38TMRnZXI2yD_EmgVBdScpqhZggou6AwNLgY_g9REvLwwAQTPCLTMGDOgfrR-t1Qd_BV2YmDTJJKdvwE-YwyyiTVbU8H5m8W-Nr8TtEPWOraFP7O8yG5WdJezpuo32FTF3fz23NZfDTu7TlrMDrJF2SF0g-vq0eNWxo-10m2DF9onGRlXP7nHoKurfrdRIMh3rltaDc0Zjww0oj45FFOX6LF_CAkMn5S2cyzw2t0BNDacKEZqWpLTKXgWWVEPfFyBOJbFMn1KpeH1_TqINgrCj-906JxtF0Vx6yb8O1eSkkd-jb58BIxlXA61m-RxZ_saaC2x6RYpcrTT4zswb5gM-2-mmd6BxjhHhhfYVUwF-MkoAsmvRfaa3ZgrPn9oDlIrTA=w1909-h928" alt="">
+				<div class=" flex flex-col gap-5 md:py-0 pt-5">
+					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl  md:text-4xl text-3xl font-black">Sebastián Suárez</h1>
+					<div class="w-full h-full flex flex-col items-center justify-center text-center bg-hunter_green-100 rounded-3xl gap-2 p-8">
+						<h2 class=" font-black md:text-8xl text-5xl text-center">Designer</h2>
+						<ul class="flex md:flex-row flex-col w-11/12 justify-between text-4xl font-semibold ">
+							<li>Service</li>
+							<li>UX</li>
+							<li>Industrial</li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class=" mt-5 p-5 text-base bg-cambridge_blue rounded-3xl text-center text-hunter_green-100 font-medium w-full">
+				<p>Explorando la interacción entre la tecnología y las personas</p>
+
+			</div>
+
+		</section>
+	
+		<section id="acerca-de-mi" class="container mx-auto  grid grid-col-1 md:grid-cols-2 gap-x-5 gap-y-5 py-8 w-full">
+			<div class=" p-7 bg-hunter_green-100 rounded-3xl">
+				<h2 class=" font-black text-2xl">Acerca de mí</h2>
+				<p class=" font-normal text-base">Soy un diseñador con más de 3 años de experiencia, donde mi enfoque apasionado busca crear productos e experiencias que despierten asombro. Mi trayectoria incluye proyectos diversos, desde diseño de productos físicos hasta experiencias digitales. Actualmente, como diseñador de servicios, innovo para mejorar procesos internos y ofrecer una experiencia excepcional a los clientes.</p>
+			</div>
+			<div class="flex flex-col gap-y-5">
+				<div class="h-full ">
+					<p class="flex items-center justify-center h-full p-7 text-base font-medium italic bg-eerie_black rounded-3xl">La curiosidad es mi brújula en el diseño. Explora mi perspectiva en artículos detallados en mi Medium</p>
+				</div>
+				<button class="w-full p-7 bg-cambridge_green rounded-3xl flex items-center justify-center">
+					<img class="w-4/5" src="/medium.svg" alt="Medium logo">
+				</button>
+				
+
+			</div>
+		</section>
+
+		<section id="portafolio" class="container mx-auto  grid grid-col-1 md:grid-cols-2 gap-x-5 gap-y-5 py-8 w-full">
+			<div class=" p-7 bg-celadon-900 rounded-3xl text-eerie_black">
+				<h2 class=" font-black text-2xl">Experiencia laboral</h2>
+				<h3 class=" font-medium text-2xl">Service designer - CasaToro</h3>
+				<p class=" font-normal text-base">2023- Actualidad</p>
+				<ul class="list-disc pl-4">
+					<li>Especialización en procesos innovadores para productos digitales.</li>
+					<li>Diseño de Minimum Viable Services (M.V.S) para optimizar operaciones.</li>
+					<li>Integración de metodología de diseño y filosofía LEAN para impulsar la innovación del servicio</li>
+
+				</ul>
+			</div>
+			<div class="project mb-8">
+				<img src="https://mir-s3-cdn-cf.behance.net/projects/808/e1445e129126529.Y3JvcCw4MjUsNjQ2LDU0Nyww.jpg" alt="Proyecto 1">
+				<p class="mt-4">Descripción del Proyecto 1.</p>
+			</div>
+		
+			<div class="project mb-8">
+				<img src="https://mir-s3-cdn-cf.behance.net/projects/808/33cff6187557913.Y3JvcCw4MDgsNjMyLDYsMA.png" alt="Proyecto 2">
+				<p class="mt-4">Descripción del Proyecto 2.</p>
+			</div>
+		
+		</section>
+	
+		<section id="habilidades">
+			<h2>Habilidades</h2>
+			<ul>
+				<li>Diseño Industrial</li>
+				<li>Prototipado</li>
+				<li>Modelado 3D</li>
+				<li>Animación</li>
+				<li>Ilustración</li>
+				<li>UX/UI</li>
+				<li>Diseño de Interfaces</li>
+				<li>Diseño de Flujos de Usuario</li>
+				<li>Diseño de Wireframes y Prototipos</li>
+				<li>Diseño de Pruebas de Usuario</li>
+				<li>Investigación</li>
+				<li>Entrevistas</li>
+				<li>Observación</li>
+				<li>Análisis de Datos</li>
+				<li>Comunicación</li>
+				<li>Redacción</li>
+				<li>Presentación</li>
+				<li>Trabajo en Equipo</li>
+			</ul>
+		</section>
+		
+		<section id="contacto">
+			<h2>Contacto</h2>
+			<!-- Agrega un formulario de contacto aquí -->
+			<p>Puedes contactarme a través de:</p>
+			<ul>
+				<li>Correo electrónico: tuemail@example.com</li>
+				<li>Teléfono: +123 456 789</li>
+			</ul>
+		</section>
+		
+		<section id="hora">
+			<h2>¡En este momento, en Bogotá, Colombia, son las:</h2>
+			<!-- Agrega un formulario de contacto aquí -->
+			<p> {currentTime} {period}.</p>
+			<p>{greeting}</p>
+		</section>
+	
+		<footer>
+			<div class="social-links">
+				<a href="#" target="_blank">LinkedIn</a>
+				<a href="#" target="_blank">GitHub</a>
+				<!-- Agrega más enlaces a tus perfiles de redes sociales -->
+			</div>
+			<p>&copy; 2023 Sebastián Suárez - Todos los derechos reservados</p>
+		</footer>
+
 	</body>
 </html>
+
+<style>
+	body{
+		font-family: 'Rubik Variable', sans-serif;
+		padding: 0;
+		margin: 0;
+	}
+
+
+</style>

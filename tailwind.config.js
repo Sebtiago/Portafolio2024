@@ -11,7 +11,11 @@ export default {
        'bg-sebtiago': '#1D1D1F',
 
     },
-    extend: {},
+    extend: {
+      spacing: {
+        '-500': '-500px', 
+      },
+    },
   },
   plugins: [],
 }

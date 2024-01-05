@@ -42,11 +42,12 @@ function getCurrentTimeAndGreeting() {
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/LogoSebtiago.svg" type="image/svg+xml">
+		<link rel="icon" type="image/svg+xml" href="/faviLogoSebtiago.svg" />
+		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sebastián Suárez Portafolio</title>
 	</head>
-	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-0 md:py-6 md:px-32">
+	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-6 md:px-32">
 		<nav >
 			
 			<header class="lg:flex  gap-5  lg:bg-opacity-0 bg-opacity-100 bg-hunter_green-100 lg:rounded-none rounded-3xl p-4">
@@ -76,8 +77,7 @@ function getCurrentTimeAndGreeting() {
 			<div class="container mx-auto  grid grid-col-1  md:grid-cols-2 gap-x-5">
 				<img class=" w-full h-96 object-cover rounded-3xl" src="https://pbs.twimg.com/profile_images/1740409419580555264/flEj_rdS_400x400.jpg" alt="">
 				<div class=" flex flex-col gap-5 md:py-0 pt-5">
-					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl  md:text-4xl text-3xl font-black">Sebastián Santiago Suárez</h1>
-					<div class="w-full h-full flex flex-col items-center justify-center text-center bg-hunter_green-100 rounded-3xl p-8">
+					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl md:text-4xl text-3xl font-black">Sebastián Santiago Suárez</h1>					<div class="w-full h-full flex flex-col items-center justify-center text-center bg-hunter_green-100 rounded-3xl p-8">
 						<h2 class="font-black text-[12vw]  lg:text-[7vw] md:text-[5vw] text-center">Designer</h2>
 						<ul class="flex md:flex-row flex-col w-11/12 justify-between text-[6vw] md:text-[2vw] lg:text-[3vw] font-semibold ">
 							<li>Service</li>
@@ -101,8 +101,7 @@ function getCurrentTimeAndGreeting() {
 			
 			<div class=" p-7 bg-hunter_green-100 rounded-3xl">
 				<h2 class=" font-black text-2xl">Acerca de mí</h2>
-				<p class=" font-normal text-base">Soy un diseñador multidisciplinar con más de 3 años de experiencia, donde mi enfoque apasionado busca crear productos e experiencias que despierten asombro. Mi trayectoria incluye proyectos diversos, desde diseño de productos físicos hasta experiencias digitales. Actualmente, como diseñador de servicios, innovo para mejorar procesos internos y ofrecer una experiencia excepcional a los clientes.</p>
-			</div>
+				<p class=" font-normal text-base">Soy un diseñador multidisciplinar con más de 3 años de experiencia, donde mi enfoque apasionado busca crear productos e experiencias que despierten asombro. Mi trayectoria incluye proyectos diversos, desde diseño de productos físicos hasta experiencias digitales. Actualmente, como diseñador de servicios, innovo para mejorar procesos internos y ofrecer una experiencia excepcional a los clientes.</p>			</div>
 			<div class="flex flex-col gap-y-5">
 				<div class="h-full ">
 					<p class="flex items-center justify-center h-full p-7 text-base font-medium italic bg-eerie_black rounded-3xl">La curiosidad es mi brújula en el diseño. Explora mi perspectiva en artículos detallados en mi Medium</p>
@@ -210,7 +209,7 @@ function getCurrentTimeAndGreeting() {
 					
 				</div>
 			</div>
-			<section id="contacto" class="mt-0 md:mt-[-100px] lg:mt-[-250px] xl:mt-[-300px] flex-col space-y-5">
+			<section id="contacto" class="mt-[-20px] md:mt-[-100px] lg:mt-[-250px] xl:mt-[-300px] flex-col space-y-5">
 				<div class="flex-col w-full">
 					<div class="my-1 p-7 bg-eerie_black h-min rounded-3xl text-celadon-900" id="hora">
 					<h3 class="font-regular text-2xl">¡En este momento, en Bogotá, Colombia, son las:</h3>
@@ -234,6 +233,7 @@ function getCurrentTimeAndGreeting() {
 
 		</section>
 		
+	
 		<footer class=" p-7">
 			<h3 class=" font-black text-2xl flex-col py-8"> Diseño, creatividad y desarrollo en perfecta armonía.</h3>
 			<p>Hecho con ❤️ y código por <a href="https://twitter.com/sebtiago" class="hover:underline">@Sebtiago</a> </p>
@@ -250,7 +250,6 @@ function getCurrentTimeAndGreeting() {
 				</div>
 			</div>
 		</footer>
-		<div class=" md:bg-celadon-100"></div>
 	</body>
 </html>
 
@@ -261,7 +260,7 @@ function getCurrentTimeAndGreeting() {
 		margin: 0;
 	}
 	.hidden {
-  display: none;
-}
+	display: none;
+	}
 
 </style>

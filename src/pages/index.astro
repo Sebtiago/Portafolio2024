@@ -1,29 +1,33 @@
 ---
 import '@fontsource-variable/rubik';
+import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 
 const { currentTime, greeting, period } = getCurrentTimeAndGreeting();
-
 function getCurrentTimeAndGreeting() {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes().toString().padStart(2, '0');
+  // Crear un objeto de fecha en la zona horaria de Bogotá
+  const now = new Date().toLocaleString("en-US", { timeZone: "America/Bogota" });
+  const bogotaDate = new Date(now);
+
+  const hours = bogotaDate.getHours();
+  const minutes = bogotaDate.getMinutes().toString().padStart(2, '0');
   
   let period;
   let greeting;
 
-  if (hours >= 0 && hours < 12) { // De 0 a 11:59 AM
+  if (hours >= 0 && hours < 12) { // Mañana
     period = 'de la mañana 🧋';
     greeting = 'Buen día. ¿Listo para hablar de diseño?';
-  } else if (hours >= 12 && hours < 18) { // De 12 PM a 5:59 PM
+  } else if (hours >= 12 && hours < 18) { // Tarde
     period = 'de la tarde 🥤';
     greeting = 'Buenas tardes. ¿Listo para hablar de diseño?';
-  } else { // De 6 PM a 11:59 PM
+  } else { // Noche
     period = 'de la noche 🌙';
     greeting = 'Buenas noches. ¿Listo para hablar de diseño?';
   }
 
   const formattedHours = hours % 12 || 12;
-  const formattedTime = `${formattedHours}:${minutes} ${hours < 12 ? 'a.m.' : 'p.m.'}`;
+  const amPm = hours < 12 ? 'a.m.' : 'p.m.';
+  const formattedTime = `${formattedHours}:${minutes} ${amPm}`;
 
   return {
     currentTime: formattedTime,
@@ -43,13 +47,32 @@ function getCurrentTimeAndGreeting() {
 		<meta name="generator" content={Astro.generator} />
 		<title>Sebastián Suárez Portafolio</title>
 	</head>
-	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-6 md:px-32">
-		
+	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-0 md:py-6 md:px-32">
+		<nav >
+			
+			<header class="lg:flex pt-5  gap-5 md:">
+				<Astronav>
+				<div class="flex w-full justify-between">
+					<a class=" self-center" href="#inicio">@Sebtiago</a>
+					<div class="block lg:hidden">
+					<MenuIcon class="w-7 h-7 text-gray-800" />
+					</div>
+				</div>
+				<MenuItems class="hidden lg:flex items-center md:bg-opacity-0 bg-opacity-100 bg-hunter_green-100 p-5 rounded-3xl">
+					<ul class="flex flex-col lg:flex-row lg:gap-5 items-center">
+						<li class="w-max hover:underline font-normal text-base "><a href="#acerca-de-mi">Acerca de mí</a></li>
+						<li class="w-max hover:underline font-normal text-base"><a href="#portafolio">Proyectos</a></li>
+						<li class="w-max hover:underline font-normal text-base"><a href="#contacto">Contacto</a></li>
+					</ul>
+				</MenuItems>
+				</Astronav>
+			</header>
+		</nav>
 		
 
 		<section id="inicio" class="py-8" >
 			<div class="container mx-auto  grid grid-col-1  md:grid-cols-2 gap-x-5">
-				<img class=" w-full h-96 object-cover rounded-3xl" src="https://lh3.googleusercontent.com/fife/AGXqzDmXLjjZgfL3-MSqA00QBPEC-Cnm1b2STZohMHluyQ4OyWeU-Z3RF02-Ev4tbhzb3vHGbYYtz2S7tY5d8fItacQfkHplSTDbe7S7teMafrFwejZJ5kcu2wk4jD1wQx7qhuSASLN-bDP4rZYrP6LGE_w27Z4wymc5OheqJyGVsz3XkYXANep54j5Vai_KHe5kzZ6iEOnc4G3UPfF34UhWLSlJDjGUbIWBKWRILheC-G3i1Oio6yRqCWvcF_Dqi51d9rDLIcQ_9IizPV3_OMbTtm3ji-td1Gk13TunMglose3OFwlpIs8bPUBQyCu2HrFdJAJr3kbKCjaVYC0PJKDlxDgAMuTqoF_QK_Q1wGt1msjjiG3CViF05M9XGJiqAbpFBTqybetjp7-ZnXWHBuxKHYBid2E24vVWSxXcgPj3y0u-515BORlj3ge0MDobugcBY_JoJURCk7zpoSiycNzx_2_zUkRb9PmUe9Ziu22an-PCDaN1fxUU1EotQZwCJaqIH6V20SmxVztNZNUEfCZGE5d2nCRRgeSlAYl3FDaj55rVIK9TdDZ6R6h4OPIcjxNilVVGmwWscBKDwuC9oPtLNVRYExN51BpbKN5RheCeLB1KYFdZWZyu38TMRnZXI2yD_EmgVBdScpqhZggou6AwNLgY_g9REvLwwAQTPCLTMGDOgfrR-t1Qd_BV2YmDTJJKdvwE-YwyyiTVbU8H5m8W-Nr8TtEPWOraFP7O8yG5WdJezpuo32FTF3fz23NZfDTu7TlrMDrJF2SF0g-vq0eNWxo-10m2DF9onGRlXP7nHoKurfrdRIMh3rltaDc0Zjww0oj45FFOX6LF_CAkMn5S2cyzw2t0BNDacKEZqWpLTKXgWWVEPfFyBOJbFMn1KpeH1_TqINgrCj-906JxtF0Vx6yb8O1eSkkd-jb58BIxlXA61m-RxZ_saaC2x6RYpcrTT4zswb5gM-2-mmd6BxjhHhhfYVUwF-MkoAsmvRfaa3ZgrPn9oDlIrTA=w1909-h928" alt="">
+				<img class=" w-full h-96 object-cover rounded-3xl" src="https://pbs.twimg.com/profile_images/1740409419580555264/flEj_rdS_400x400.jpg" alt="">
 				<div class=" flex flex-col gap-5 md:py-0 pt-5">
 					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl  md:text-4xl text-3xl font-black">Sebastián Suárez</h1>
 					<div class="w-full h-full flex flex-col items-center justify-center text-center bg-hunter_green-100 rounded-3xl p-8">
@@ -82,7 +105,7 @@ function getCurrentTimeAndGreeting() {
 				<div class="h-full ">
 					<p class="flex items-center justify-center h-full p-7 text-base font-medium italic bg-eerie_black rounded-3xl">La curiosidad es mi brújula en el diseño. Explora mi perspectiva en artículos detallados en mi Medium</p>
 				</div>
-				<button class="w-full p-7 bg-cambridge_green rounded-3xl flex items-center justify-center">
+				<button class="w-full p-7 bg-cambridge_green rounded-3xl flex items-center justify-center hover:shadow-inner hover:bg-hunter_green-100">
 					<img class="w-4/5" src="/medium.svg" alt="Medium logo">
 				</button>
 				
@@ -92,17 +115,23 @@ function getCurrentTimeAndGreeting() {
 
 		<section id="portafolio" class="mx-auto  grid grid-col-1 md:grid-cols-2 gap-x-5 gap-y-5 py-8 w-full h-min">
 			<div>
-				<a href="https://www.behance.net/gallery/129126529/Dog-Road-UX-UI" target="_blank" class="project w-full h-72 p-7 flex flex-col justify-end rounded-3xl" style="background-image: url('https://mir-s3-cdn-cf.behance.net/projects/808/e1445e129126529.Y3JvcCw4MjUsNjQ2LDU0Nyww.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-					<h3 class="font-black text-2xl text-white">Proyecto: </h3>
-					<p class="mt-2 text-white bg-black bg-opacity-50">PetBistro Box - Diseño UX/UI</p>
+				<a href="https://www.behance.net/gallery/129126529/Dog-Road-UX-UI" target="_blank">
+					<div  class="project w-full h-72 flex flex-col justify-end rounded-t-3xl" style="background-image: url('https://mir-s3-cdn-cf.behance.net/projects/808/e1445e129126529.Y3JvcCw4MjUsNjQ2LDU0Nyww.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+					<div class="h-min bg-eerie_black w-full  py-3 px-7 rounded-b-3xl hover:shadow-inner hover:bg-celadon-900 hover:text-eerie_black">
+						<h3 class="font-black text-2xl text-white">Proyecto: </h3>
+						<p class="mt-2 text-white bg-black bg-opacity-50">PetBistro Box - Diseño UX/UI</p>
+					</div>
 				</a>
 			</div>
 			<div>
-				<a href="https://www.behance.net/gallery/187557913/PetBistro-Box-Diseno-UXUI" target="_blank" class="project mb-4 w-full  h-72 p-7 flex flex-col justify-end rounded-3xl" style="background-image: url('https://mir-s3-cdn-cf.behance.net/projects/808/33cff6187557913.Y3JvcCw4MDgsNjMyLDYsMA.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-					<h3 class="font-black text-2xl text-white">Proyecto: </h3>
-					<p class="mt-2 text-white bg-black bg-opacity-50">PetBistro Box - Diseño UX/UI</p>
+				<a href="https://www.behance.net/gallery/187557913/PetBistro-Box-Diseno-UXUI" target="_blank">
+					<div  class="project w-full h-72 flex flex-col justify-end rounded-t-3xl" style="background-image: url('https://mir-s3-cdn-cf.behance.net/projects/808/33cff6187557913.Y3JvcCw4MDgsNjMyLDYsMA.png'); background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+					<div class="h-min bg-eerie_black w-full  py-3 px-7 rounded-b-3xl hover:shadow-inner hover:bg-celadon-900 hover:text-eerie_black">
+						<h3 class="font-black text-2xl text-white">Proyecto: </h3>
+						<p class="mt-2 text-white bg-black bg-opacity-50">PetBistro Box - Diseño UX/UI</p>
+					</div>
 				</a>
-			</div>	
+			</div>
 
 			<div class=" p-7 bg-celadon-900 rounded-3xl text-eerie_black h-min">
 				<h2 class=" font-black text-2xl mb-1">Experiencia laboral</h2>
@@ -179,19 +208,24 @@ function getCurrentTimeAndGreeting() {
 					
 				</div>
 			</div>
-			<section id="contacto" class="mt-0 md:mt-[-300px]">
+			<section id="contacto" class="mt-0 md:mt-[-100px] lg:mt-[-250px] xl:mt-[-300px] flex-col space-y-5">
 				<div class="flex-col w-full">
 					<div class="my-1 p-7 bg-eerie_black h-min rounded-3xl text-celadon-900" id="hora">
 					<h3 class="font-regular text-2xl">¡En este momento, en Bogotá, Colombia, son las:</h3>
 					<p class="font-black text-5xl py-4"> {currentTime} <span class="font-light">{period}</span></p>
 					<p class="font-regular text-base">{greeting}</p>
 					</div>
-					<div class="p-7 bg-celadon-900 flex-col w-full rounded-3xl">
-					<h3 class="my-4 text-hunter_green-100 font-black text-2xl">¿Preguntas, ideas o proyectos emocionantes?</h3>
-					<button class="p-5 bg-cambridge_green rounded-3xl w-full">
-						<a href="">¡Envíame un mensaje y hagamos magia juntos</a>
+				</div>	
+				<div class="p-7 bg-celadon-900 flex-col w-full rounded-3xl">
+					<h3 class="my-4 text-hunter_green-100 font-black text-2xl">¿Buscando una mente creativa para tu proyecto?</h3>
+					<button class="p-5 bg-cambridge_green rounded-3xl w-full flex items-center justify-center hover:shadow-inner hover:bg-hunter_green-100">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" class="self-center">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#ecf5ed"/>
+						</svg>							
+						<p class="ml-2">¡Envíame un mensaje y colaboremos!</p>
 					</button>
-					</div>
+					
+				</div>
 				</div>
 			</section>
 
@@ -223,6 +257,8 @@ function getCurrentTimeAndGreeting() {
 		padding: 0;
 		margin: 0;
 	}
-
+	.hidden {
+  display: none;
+}
 
 </style>

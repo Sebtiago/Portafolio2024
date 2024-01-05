@@ -15,14 +15,14 @@ function getCurrentTimeAndGreeting() {
   let greeting;
 
   if (hours >= 0 && hours < 12) { // Mañana
-    period = 'de la mañana 🧋';
-    greeting = 'Buen día. ¿Listo para hablar de diseño?';
+    period = ' de la mañana 🧋';
+    greeting = '¡Saludos matutinos! Estoy listo para explorar ideas creativas, ¿y tú?';
   } else if (hours >= 12 && hours < 18) { // Tarde
-    period = 'de la tarde 🥤';
-    greeting = 'Buenas tardes. ¿Listo para hablar de diseño?';
+    period = ' de la tarde 🥤';
+    greeting = '¡Tarde soleada! ¿Qué proyectos emocionantes tienes en mente para discutir?';
   } else { // Noche
-    period = 'de la noche 🌙';
-    greeting = 'Buenas noches. ¿Listo para hablar de diseño?';
+    period = ' de la noche 🌙';
+    greeting = '¡Buenas noches! El día ha sido largo, pero todavía tengo energía para hablar de diseño.';
   }
 
   const formattedHours = hours % 12 || 12;
@@ -42,18 +42,20 @@ function getCurrentTimeAndGreeting() {
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/LogoSebtiago.svg" type="image/svg+xml">
 		<meta name="generator" content={Astro.generator} />
 		<title>Sebastián Suárez Portafolio</title>
 	</head>
 	<body class=" bg-bg-sebtiago text-celadon-900 px-9 py-0 md:py-6 md:px-32">
 		<nav >
 			
-			<header class="lg:flex pt-5  gap-5 md:">
+			<header class="lg:flex  gap-5  lg:bg-opacity-0 bg-opacity-100 bg-hunter_green-100 lg:rounded-none rounded-3xl p-4">
 				<Astronav>
-				<div class="flex w-full justify-between">
-					<a class=" self-center" href="#inicio">@Sebtiago</a>
+				<div class="flex w-full justify-between self-center flex-row">
+					<a class="flex items-center" href="#inicio">
+						<img src="LogoSebtiago.svg" alt="Logo Sebtiago" class="h-8 w-8">
+						<p class="ml-2">Sebtiago Suárez</p>
+					</a>
 					<div class="block lg:hidden">
 					<MenuIcon class="w-7 h-7 text-gray-800" />
 					</div>
@@ -74,10 +76,10 @@ function getCurrentTimeAndGreeting() {
 			<div class="container mx-auto  grid grid-col-1  md:grid-cols-2 gap-x-5">
 				<img class=" w-full h-96 object-cover rounded-3xl" src="https://pbs.twimg.com/profile_images/1740409419580555264/flEj_rdS_400x400.jpg" alt="">
 				<div class=" flex flex-col gap-5 md:py-0 pt-5">
-					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl  md:text-4xl text-3xl font-black">Sebastián Suárez</h1>
+					<h1 class=" w-full text-center p-3 bg-hunter_green rounded-3xl  md:text-4xl text-3xl font-black">Sebastián Santiago Suárez</h1>
 					<div class="w-full h-full flex flex-col items-center justify-center text-center bg-hunter_green-100 rounded-3xl p-8">
-						<h2 class="font-black text-[12vw] md:text-[7vw] text-center">Designer</h2>
-						<ul class="flex md:flex-row flex-col w-11/12 justify-between text-[6vw] md:text-[3vw] font-semibold ">
+						<h2 class="font-black text-[12vw]  lg:text-[7vw] md:text-[5vw] text-center">Designer</h2>
+						<ul class="flex md:flex-row flex-col w-11/12 justify-between text-[6vw] md:text-[2vw] lg:text-[3vw] font-semibold ">
 							<li>Service</li>
 							<li>UX</li>
 							<li>Industrial</li>
@@ -99,7 +101,7 @@ function getCurrentTimeAndGreeting() {
 			
 			<div class=" p-7 bg-hunter_green-100 rounded-3xl">
 				<h2 class=" font-black text-2xl">Acerca de mí</h2>
-				<p class=" font-normal text-base">Soy un diseñador con más de 3 años de experiencia, donde mi enfoque apasionado busca crear productos e experiencias que despierten asombro. Mi trayectoria incluye proyectos diversos, desde diseño de productos físicos hasta experiencias digitales. Actualmente, como diseñador de servicios, innovo para mejorar procesos internos y ofrecer una experiencia excepcional a los clientes.</p>
+				<p class=" font-normal text-base">Soy un diseñador multidisciplinar con más de 3 años de experiencia, donde mi enfoque apasionado busca crear productos e experiencias que despierten asombro. Mi trayectoria incluye proyectos diversos, desde diseño de productos físicos hasta experiencias digitales. Actualmente, como diseñador de servicios, innovo para mejorar procesos internos y ofrecer una experiencia excepcional a los clientes.</p>
 			</div>
 			<div class="flex flex-col gap-y-5">
 				<div class="h-full ">
@@ -212,18 +214,19 @@ function getCurrentTimeAndGreeting() {
 				<div class="flex-col w-full">
 					<div class="my-1 p-7 bg-eerie_black h-min rounded-3xl text-celadon-900" id="hora">
 					<h3 class="font-regular text-2xl">¡En este momento, en Bogotá, Colombia, son las:</h3>
-					<p class="font-black text-5xl py-4"> {currentTime} <span class="font-light">{period}</span></p>
-					<p class="font-regular text-base">{greeting}</p>
+					<p class="font-black text-5xl py-4 "> {currentTime}<span class="font-light text-5xl ">{period}</span></p>
+					
+					<p class="font-regular text-base pt-3">{greeting}</p>
 					</div>
 				</div>	
 				<div class="p-7 bg-celadon-900 flex-col w-full rounded-3xl">
 					<h3 class="my-4 text-hunter_green-100 font-black text-2xl">¿Buscando una mente creativa para tu proyecto?</h3>
-					<button class="p-5 bg-cambridge_green rounded-3xl w-full flex items-center justify-center hover:shadow-inner hover:bg-hunter_green-100">
+					<a href="mailto:sebtiagosuarez@gmail.com" class="p-5 bg-cambridge_green rounded-3xl w-full flex items-center justify-center hover:shadow-inner hover:bg-hunter_green-100">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" class="self-center">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#ecf5ed"/>
 						</svg>							
 						<p class="ml-2">¡Envíame un mensaje y colaboremos!</p>
-					</button>
+					</a>
 					
 				</div>
 				</div>
